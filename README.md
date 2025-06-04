@@ -1,16 +1,16 @@
 # laboratorio_controle
 
-A new Flutter project.
+Projeto desenvolvido para controlar uma bancada via protocolo MQTT e utilizando um broker Mosquitto.
 
-## Getting Started
+Para utilizar o aplicativo o usuário deve fornecer informações a respeito do seu grupo e posteriormente os dados (IP e porta) do broker para efetuar a conexão.
 
-This project is a starting point for a Flutter application.
+Após conexão bem sucedida serão solicitados os dados dos parâmetros do experimento.
 
-A few resources to get you started if this is your first Flutter project:
+Os dados serão enviados via protocolo MQTT para o broker, onde serão lidos pela bancada que possuí um ESP 32 que está conectado como subescritor e irá receber estes parâmetros e iniciar o experimento.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+A medida que o experimento avança, na terceira tela será mostrado um feedback em tempo real do experimento - (com possiblidade de Stream do experimento*).
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Ao final o usuário poderá: visualizar os dados coletados, armazená-lós em seu dispositivo móvel ou descartá-los.
+
+*-Atualização caso seja possível implementar módulo de câmera na bancada
+
