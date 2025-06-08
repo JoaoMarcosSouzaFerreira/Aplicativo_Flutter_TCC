@@ -25,7 +25,7 @@ class _ExperimentoState extends State<Experimento> {
   String _brokerStatusESP = 'Verificando...';
   String _experimentoStatus = 'Parado';
   double _nivelAtual = 0.0;
-  // **ALTERAÇÃO CRÍTICA**: Ajusta a altura máxima para o limite físico real do experimento.
+
   final double _maxNivelTanque = 17.0; // Altura máxima da coluna de água (37cm - 20cm)
 
   final Map<String, Map<String, String?>> _linhasDeDadosPendentes = {};
