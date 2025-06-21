@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'dados_integrantes.dart';
+import 'dados_integrantes.dart'; // Certifique-se que este arquivo existe no seu projeto
 import 'dart:async';
 
 void main() {
@@ -22,8 +22,6 @@ class MyApp extends StatelessWidget {
       onSecondary: Colors.white,
       error: const Color(0xFFD32F2F), // Vermelho para acento de erro
       onError: Colors.white,
-      background: Colors.grey.shade100, // Fundo principal sutilmente cinza
-      onBackground: const Color(0xFF212121),
       surface: Colors.white, // Cards e diálogos serão brancos puros
       onSurface: const Color(0xFF212121),
     );
@@ -31,7 +29,7 @@ class MyApp extends StatelessWidget {
     final lightTheme = ThemeData(
       useMaterial3: true,
       colorScheme: lightColorScheme,
-      scaffoldBackgroundColor: lightColorScheme.background,
+      scaffoldBackgroundColor: Colors.grey.shade100, // Fundo principal sutilmente cinza
       appBarTheme: AppBarTheme(
         // AppBar branca para um visual super clean
         backgroundColor: lightColorScheme.surface,
@@ -45,7 +43,8 @@ class MyApp extends StatelessWidget {
         ),
         centerTitle: true,
       ),
-      cardTheme: CardTheme(
+      // CORREÇÃO: Usado CardThemeData em vez de CardTheme
+      cardTheme: CardThemeData(
         elevation: 1,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         color: lightColorScheme.surface,
@@ -83,18 +82,19 @@ class MyApp extends StatelessWidget {
         backgroundColor: Colors.white,
         indicatorColor: Colors.grey.shade200,
         surfaceTintColor: Colors.transparent,
-        labelTextStyle: MaterialStateProperty.resolveWith((states) {
-          if (states.contains(MaterialState.selected)) {
+        labelTextStyle: WidgetStateProperty.resolveWith((states) {
+          if (states.contains(WidgetState.selected)) {
             return TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: lightColorScheme.primary);
           }
           return TextStyle(fontSize: 12, color: Colors.grey.shade600);
         }),
-        iconTheme: MaterialStateProperty.resolveWith((states) {
-          final color = states.contains(MaterialState.selected) ? lightColorScheme.primary : Colors.grey.shade600;
+        iconTheme: WidgetStateProperty.resolveWith((states) {
+          final color = states.contains(WidgetState.selected) ? lightColorScheme.primary : Colors.grey.shade600;
           return IconThemeData(color: color, size: 24);
         }),
       ),
-      dialogTheme: DialogTheme(
+      // CORREÇÃO: Usado DialogThemeData em vez de DialogTheme
+      dialogTheme: DialogThemeData(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         backgroundColor: lightColorScheme.surface,
         elevation: 5,
@@ -111,8 +111,6 @@ class MyApp extends StatelessWidget {
       onSecondary: Colors.black,
       error: const Color(0xFFEF9A9A), // Vermelho mais claro para contraste
       onError: Colors.black,
-      background: const Color(0xFF121212), // Fundo padrão do Material Design Dark
-      onBackground: Colors.white.withOpacity(0.9),
       surface: const Color(0xFF1E1E1E), // Superfície dos cards um pouco mais clara
       onSurface: Colors.white.withOpacity(0.9),
     );
@@ -120,7 +118,7 @@ class MyApp extends StatelessWidget {
     final darkTheme = ThemeData(
         useMaterial3: true,
         colorScheme: darkColorScheme,
-        scaffoldBackgroundColor: darkColorScheme.background,
+        scaffoldBackgroundColor: const Color(0xFF121212), // Fundo padrão do Material Design Dark
         appBarTheme: AppBarTheme(
           backgroundColor: darkColorScheme.surface,
           foregroundColor: darkColorScheme.onSurface,
@@ -132,7 +130,8 @@ class MyApp extends StatelessWidget {
           ),
           centerTitle: true,
         ),
-        cardTheme: CardTheme(
+        // CORREÇÃO: Usado CardThemeData em vez de CardTheme
+        cardTheme: CardThemeData(
           elevation: 1,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
           color: darkColorScheme.surface,
@@ -168,18 +167,19 @@ class MyApp extends StatelessWidget {
           backgroundColor: darkColorScheme.surface,
           indicatorColor: Colors.grey.shade800,
           surfaceTintColor: Colors.transparent,
-          labelTextStyle: MaterialStateProperty.resolveWith((states) {
-          if (states.contains(MaterialState.selected)) {
-            return TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: darkColorScheme.primary);
-          }
-          return TextStyle(fontSize: 12, color: Colors.grey.shade400);
-        }),
-        iconTheme: MaterialStateProperty.resolveWith((states) {
-          final color = states.contains(MaterialState.selected) ? darkColorScheme.primary : Colors.grey.shade400;
-          return IconThemeData(color: color, size: 24);
-        }),
+          labelTextStyle: WidgetStateProperty.resolveWith((states) {
+            if (states.contains(WidgetState.selected)) {
+              return TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: darkColorScheme.primary);
+            }
+            return TextStyle(fontSize: 12, color: Colors.grey.shade400);
+          }),
+          iconTheme: WidgetStateProperty.resolveWith((states) {
+            final color = states.contains(WidgetState.selected) ? darkColorScheme.primary : Colors.grey.shade400;
+            return IconThemeData(color: color, size: 24);
+          }),
         ),
-        dialogTheme: DialogTheme(
+        // CORREÇÃO: Usado DialogThemeData em vez de DialogTheme
+        dialogTheme: DialogThemeData(
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
           backgroundColor: darkColorScheme.surface,
           elevation: 5,
@@ -352,3 +352,4 @@ class _StartScreenState extends State<StartScreen> {
     );
   }
 }
+
