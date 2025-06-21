@@ -405,7 +405,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
                         Text(
-                          'v 9.8.7.5',
+                          'v 9.8.7.2',
                           style: TextStyle(
                               fontSize: 12,
                               fontStyle: FontStyle.italic,
@@ -418,7 +418,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                             backgroundColor: const Color(0xFF212121),
                             elevation: 5,
                             child: const Icon(Icons.arrow_forward_ios,
-                                color: Colors.white, size: 20),
+                                color: Colors.white, size: 25),
                           ),
                         ),
                       ],
